@@ -1,0 +1,104 @@
+<div class="container" style = "max-width: 800px; font-size: 13px; margin-top: 20px;">
+    <div class="row align-items-end margin_bottom_pdf">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div style = "width: 3cm; border: 3px solid #000; border-radius: 4px; height: 4cm; display: flex; align-items: center; text-align: center; margin-left: 0; float: right;">
+                Logo heir einfügen
+            </div>
+        </div> 
+    </div>
+    <div class="row margin_bottom_pdf">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+            <p class="text-left"><u>{{ userData.companyName }}</u> <u>{{ userData.address }}</u> <u>{{ userData.zipCode }}</u> <u>{{ userData.city }}</u></p>
+            {{ clientData.companyName }}<br> {{ clientData.address }}<br> {{ clientData.zipCode }} {{ clientData.city}}<br> {{ clientData.country }}<br>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+            <p class="text-right">
+                Rechnungsdatum: {{ billData.date }}<br> E-Mail: {{ userData.email }}<br> Phone: {{ userData.phone }}<br>
+            </p>
+        </div>
+    </div>
+    <h2>Rechnung</h2>
+    <div class="row margin_bottom_pdf">
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+            <p class="text-center">
+                <b>Rechnungsnummer:</b><br>{{ billData.id }}
+            </p>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+            <p class="text-center">
+                <b>Kundennummer:</b><br>{{ clientData.id }}
+            </p>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+            <p class="text-center">
+                <b>Datum:</b><br>{{ billData.date }}
+            </p>
+        </div>
+    </div>
+    <p class="text-left">Sehr geehrter Herr Mustermann,</p>
+    <p class="text-left margin_bottom_pdf">vielen Dank für Ihr Vertrauren in die Musterfirma GmbH. Hiermit stellen wir Ihnen folgende Leistungen in Rechnung</p>
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <table class="table table-bordered table-condensed" style = "font-size: 13px;">
+                <thead>
+                    <tr>
+                        <th>Pos</th>
+                        <th>Bezeichnung</th>
+                        <th>Menge</th>
+                        <th>Einheit</th>
+                        <th>Einzelpreis</th>
+                        <th>Cesamtpreis</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each billItems}}
+                    <tr>
+                        <td>{{ inc @index }}</td>
+                        <td>{{ name }}<br> {{ description }}</td>
+                        <td>{{ amount }}</td>
+                        <td>{{ tax }}</td>
+                        <td>{{ pricePer }}</td>
+                        <td>{{ multiply pricePer amount }}</td>
+                    </tr>
+                    {{/each }}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="semi_separate"></div>
+    <div class="special_container text-center">
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                <b>Nettobetrag</b>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                {{ totalPerPrice }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                <b>Rechnungnbetrag</b>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                {{ totalPrices }}
+            </div>
+        </div>
+    </div>
+    <p class="text-justify margin_bottom_pdf">
+        Der Gesambtbetrag ist bis zum 25.05.2017 mit dem Verwendungszweck ,,RE-2017-MAI-11-0003'' auf unser unten genanntes Konto zu zahlen.
+    </p>
+    <p class="text-right">
+        Mit freundlichen GrüBen {{ userData.companyName }}
+    </p>
+    <div class="row footer_invoice">
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+            Musterfirma GmbH<br> Musterstrabe 12<br> 12345 Musterstadt<br> Deutschland
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+            Bank: Muster bank<br> IBAN: DE19 1234 1234 1234 12<br> BIC: ABCDEFG<br> USt.-IdNr .: DE123456789
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+            tel: 030 1234 5678<br> Fax: 030 1234 5678<br> E-Mail: info@example.com<br> Website: www.example.com
+        </div>
+    </div>
+</div>

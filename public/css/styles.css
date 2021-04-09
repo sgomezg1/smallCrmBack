@@ -1,0 +1,37 @@
+.logo_image {
+    width: 3cm;
+    border: 3px solid #000;
+    border-radius: 4px;
+    height: 4cm;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin-left: 0;
+    float: right;
+}
+
+.margin_bottom_pdf {
+    margin-bottom: 30px;
+}
+
+.semi_separate {
+    width: 95%;
+    margin: auto;
+    height: 3px;
+    background: #000;
+    margin-top: 0px;
+    margin-bottom: 30px;
+}
+
+.special_container {
+    width: 80%;
+    margin: auto;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.footer_invoice {
+    border-top: 2px solid #a2a2a2;
+    margin-top: 20px;
+    padding-top: 10px;
+}
